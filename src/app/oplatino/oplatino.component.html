@@ -1,0 +1,31 @@
+<p>oplatino works!</p>
+<h2>Verificación de Rectángulo Latino</h2>
+
+<div>
+  <label for="inputR">R:</label>
+  <input type="number" id="inputR" [(ngModel)]="R" />
+</div>
+
+<div>
+  <label for="inputC">C:</label>
+  <input type="number" id="inputC" [(ngModel)]="C" />
+</div>
+
+<div>
+  <label for="inputMatriz">Matriz:</label>
+  <textarea id="inputMatriz" [(ngModel)]="rectangulo"></textarea>
+</div>
+
+<button (click)="verificarRectanguloLatino()">Verificar</button>
+
+<div *ngIf="resultadosRenglones && resultadosColumnas">
+  <h3>Resultados de los renglones:</h3>
+  <ul>
+    <li *ngFor="let resultado of resultadosRenglones">{{ resultado }}</li>
+  </ul>
+
+  <h3>Resultados de las columnas:</h3>
+  <ul>
+    <li *ngFor="let resultado of resultadosColumnas">{{ resultado }}</li>
+  </ul>
+</div>
