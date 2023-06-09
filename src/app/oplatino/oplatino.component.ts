@@ -17,7 +17,7 @@ export class OplatinoComponent {
 
   resultadosRenglones!: number[];
   resultadosColumnas!: number[];
-  rectangulo!: number[][];
+  rectangulo: number[][] =[];
 
   // verificarRectanguloLatino() {
   //   // Verificar cada renglón
@@ -63,14 +63,26 @@ botonazoMagico(){
 console.log('R', this.R);
 console.log('C', this.C)
 
+  // for (let i = 0; i < this.R; i++) {
+  //   const fila: number[] = [];
+  //   this.rectangulo[i] = [];
+  //   for (let j = 0; j < this.C; j++) {
+  //     const valor: number = this.getRandomNumber(1, 1000);
+  //     fila.push(valor);
+  //     this.rectangulo[[i][j]];
+  //   }
+  // }
+
   for (let i = 0; i < this.R; i++) {
-    this.rectangulo[i];
+    const fila: number[] = [];
     for (let j = 0; j < this.C; j++) {
-      this.rectangulo[[i][j]];
+      const valor: number = this.getRandomNumber(1, 1000);
+      fila.push(valor);
     }
+    this.rectangulo.push(fila);
   }
 
-  console.log('rectangulo',this.rectangulo)
+
 
   // const matriz = [
   //   [3, 1, 2, 3],
@@ -78,82 +90,90 @@ console.log('C', this.C)
   //   [4, 9, 5, 8]
   // ];
 
-  // this.validarRLatino(this.R, this.C, this.rectangulo);
+  // this.rectangulo = matriz;
+
+  console.log('rectangulo',this.rectangulo);
+
+   this.validarRLatino(this.R, this.C, this.rectangulo);
 
   console.log("Validacion de Renglones: ", this.resultadosRenglones.join(" "));
   console.log("Validacion de Columnas: ", this.resultadosColumnas.join(" "));
 }
 
-  crearRectangulo() {
+ getRandomNumber(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
-    this.body = document.getElementsByTagName("body")[0];
-    console.log(this.body);
-    this.table = document.getElementsByTagName("table")[0];
+//   crearRectangulo() {
 
-    // console.log(this.table);
+//     this.body = document.getElementsByTagName("body")[0];
+//     console.log(this.body);
+//     this.table = document.getElementsByTagName("table")[0];
 
-    if (this.table === undefined) {
+//     // console.log(this.table);
 
-      this.body// this.createTable(this.body);
-    } else {
-      this.table.remove();
-      // this.createTable(body);
-      this.body
-    }
+//     if (this.table === undefined) {
 
-    var tabla = document.createElement("table");
-    var tblBody = document.createElement("tbody");
+//       this.body// this.createTable(this.body);
+//     } else {
+//       this.table.remove();
+//       // this.createTable(body);
+//       this.body
+//     }
 
-    for (var i = 0; i < this.R; i++) {
-      var renglon = document.createElement("tr");
+//     var tabla = document.createElement("table");
+//     var tblBody = document.createElement("tbody");
 
-      for (var j = 0; j < this.C; j++) {
+//     for (var i = 0; i < this.R; i++) {
+//       var renglon = document.createElement("tr");
 
-        let min = Math.ceil(1);
-        let max = Math.floor(1000);
-        let res = Math.floor(Math.random() * (max - min + 1) + min);
+//       for (var j = 0; j < this.C; j++) {
 
-        var celda = document.createElement("td");
-        var textoCelda = document.createTextNode(" " + res);
-        celda.appendChild(textoCelda);
-        renglon.appendChild(celda);
-      }
+//         let min = Math.ceil(1);
+//         let max = Math.floor(1000);
+//         let res = Math.floor(Math.random() * (max - min + 1) + min);
 
-      tblBody.appendChild(renglon);
-    }
+//         var celda = document.createElement("td");
+//         var textoCelda = document.createTextNode(" " + res);
+//         celda.appendChild(textoCelda);
+//         renglon.appendChild(celda);
+//       }
 
-    tabla.appendChild(tblBody);
-    this.body.appendChild(tabla);
-    tabla.setAttribute("border", "1");
+//       tblBody.appendChild(renglon);
+//     }
 
-
-    console.log('rectangulo', tabla)
-// Obtener la tabla por su ID
-
-  // Verificar el tamaño del rectángulo
-  const numeroFilas = tabla.rows.length;
-  const numeroColumnas = tabla.rows[0].cells.length;
-
-    console.log('numeroFilas', numeroFilas)
-    console.log('numeroColumnas', numeroColumnas);
-
-    // const numerosSet = new Set<number>();
-    // for (let i = 0; i < numeroFilas; i++) {
-    //   const fila = tabla.rows[i];
-    //   for (let j = 0; j < numeroColumnas; j++) {
-    //     const celda = fila.cells[j];
-    //     const numero = parseInt(celda.innerText);
-
-    //     numerosSet.add(numero);
-
-    //     console.log('fila', fila)
-    //     console.log('celda', celda)
-
-    //   }}
+//     tabla.appendChild(tblBody);
+//     this.body.appendChild(tabla);
+//     tabla.setAttribute("border", "1");
 
 
+//     console.log('rectangulo', tabla)
+// // Obtener la tabla por su ID
 
-  }
+//   // Verificar el tamaño del rectángulo
+//   const numeroFilas = tabla.rows.length;
+//   const numeroColumnas = tabla.rows[0].cells.length;
+
+//     console.log('numeroFilas', numeroFilas)
+//     console.log('numeroColumnas', numeroColumnas);
+
+//     // const numerosSet = new Set<number>();
+//     // for (let i = 0; i < numeroFilas; i++) {
+//     //   const fila = tabla.rows[i];
+//     //   for (let j = 0; j < numeroColumnas; j++) {
+//     //     const celda = fila.cells[j];
+//     //     const numero = parseInt(celda.innerText);
+
+//     //     numerosSet.add(numero);
+
+//     //     console.log('fila', fila)
+//     //     console.log('celda', celda)
+
+//     //   }}
+
+
+
+//   }
 
   validarRLatino(R: number, C: number, matriz: number[][]) {
      this.resultadosRenglones=[];
