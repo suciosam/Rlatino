@@ -1,4 +1,4 @@
-<h2>Verificación de Rectángulo Latino</h2>
+<!-- <h2>Verificación de Rectángulo Latino</h2>
 
 <div>
   <label for="inputR">R:</label>
@@ -27,4 +27,45 @@
   <ul>
     <li *ngFor="let resultado of resultadosColumnas">{{ resultado }}</li>
   </ul>
-</div>
+</div> -->
+
+<div style="margin-right: 20px; margin-left: 20px;">
+  <h1>OPERACION RECTANGULO LATINO</h1>
+
+  <h2>Verificación de Rectángulo Latino</h2>
+
+  <div style="margin-bottom: 10px;">
+    <label for="inputR">R:</label>
+    <input type="number" id="inputR" [(ngModel)]="R" placeholder="Ingresa un número entero" />
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <label for="inputC">C:</label>
+    <input type="number" id="inputC" [(ngModel)]="C" placeholder="Ingresa un número entero" />
+  </div>
+
+
+  <button (click)="crearRectangulo()">Crear Rectangulo</button>
+
+  <div style="margin-bottom: 10px;">
+    <label>Rectangulo</label>
+    <div id="contenedor-tabla"></div>
+  </div>
+
+   <button (click)="botonazoMagico()">Boton magico</button>
+
+  <!-- <button (click)="verificarRectanguloLatino()">Verificar</button>
+
+  <div *ngIf="resultadosRenglones && resultadosColumnas">
+    <h3>Resultados de los renglones:</h3>
+    <ul>
+      <li *ngFor="let resultado of resultadosRenglones">{{ resultado }}</li>
+    </ul>
+
+    <h3>Resultados de las columnas:</h3>
+    <ul>
+      <li *ngFor="let resultado of resultadosColumnas">{{ resultado }}</li>
+    </ul>
+  </div>
+
+</div> -->
